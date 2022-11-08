@@ -14,5 +14,7 @@
 void parseCmd(char* cmd, char** params);
 int executeCmd(char** params);
 extern char **environ;
+int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
 
 #endif

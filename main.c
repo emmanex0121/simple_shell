@@ -18,8 +18,8 @@ int main(void)
 		printf("%s@shell# ", username);
 		if (fgets(cmd, sizeof(cmd), stdin) == NULL)
 			break;
-		if (cmd[strlen(cmd) - 1] == '\n')
-			cmd[strlen(cmd) - 1] = '\0';
+		if (cmd[_strlen(cmd) - 1] == '\n')
+			cmd[_strlen(cmd) - 1] = '\0';
 		parseCmd(cmd, params);
 		if (executeCmd(params) == 0)
 			break;
