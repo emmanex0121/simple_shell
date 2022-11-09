@@ -21,6 +21,8 @@ int main(void)
 		if (cmd[_strlen(cmd) - 1] == '\n')
 			cmd[_strlen(cmd) - 1] = '\0';
 		parseCmd(cmd, params);
+		if(_strcmp(params[0], "exit") == 0)
+			break;
 		if (executeCmd(params) == 0)
 			break;
 	}
