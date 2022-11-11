@@ -50,3 +50,46 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (val);
 }
+
+/**
+ * _memcpy - Function to replace memory area with a constant
+ * @dest: parameter of destination memory area
+ * @n: parameter to hold number of bytes to alter
+ * @src: parameter of source memory area
+ *
+ * Return: the copied values
+ */
+
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	int j;
+	int i = n;
+
+	/* { */
+		for (j = 0; j < i; j++)
+		{
+			dest[j] = src[j];
+		}
+	/* } */
+	return (dest);
+}
+
+/**
+ * _strchr - locates a character in a string
+ * @s: string parameter
+ * @c: character parameter
+ *
+ * Return: the pointer to the first occurrence of the character c
+ */
+
+char *_strchr(char *s, char c)
+{
+	unsigned int j = 0;
+
+	for (j = 0; s[j] != '\0'; j++)
+		if (s[j] == c)
+			return (s + j);
+	if (s[j] == c)
+		return (s + j);
+	return ('\0');
+}

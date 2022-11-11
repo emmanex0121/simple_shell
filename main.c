@@ -7,24 +7,31 @@
 
 int main(void)
 {
-	char cmd[MAX_COMMAND_LENGTH + 1];
-	char *params[MAX_NUMBER_OF_PARAMS + 1];
-	int cmdCount = 0;
-
 	while (1)
 	{
-		char *username = getenv("USER");
+		char *line;
+		char **tokens;
+		char *buff = NULL;
+		char *tmp = NULL;
 
-		printf("%s@shell# ", username);
-		if (fgets(cmd, sizeof(cmd), stdin) == NULL)
-			break;
-		if (cmd[_strlen(cmd) - 1] == '\n')
-			cmd[_strlen(cmd) - 1] = '\0';
-		parseCmd(cmd, params);
-		if(_strcmp(params[0], "exit") == 0)
-			break;
-		if (executeCmd(params) == 0)
-			break;
+		printf("$ ");
+		line = _getline();
+		tokens = split_line(line);
+
+		if (tokens[0] != NULL)
+		{
+			if (!_strchr(tokens[0], '/'))
+			{
+				buff = get_path_buff_size(tokens[0]);
+				tmp = find_path(tokens[0], buff);
+				if (tmp)
+					tokens[0] = tmp;
+			}
+			execute(tokens);
+		}
+		free(buff);
+		free(tokens);
+		free(line);
 	}
 	return (0);
 }

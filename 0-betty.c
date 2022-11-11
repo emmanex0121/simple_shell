@@ -5,7 +5,7 @@
  *
  */
 
-void main(void)
+void betty(void)
 {
 	printf("Hello, World!");
 }
