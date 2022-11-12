@@ -2,18 +2,25 @@
 
 /**
  * main - executes shell loop
+ * @argc: number of command line arguments
+ * @argv: the program command line arguments
  * Return: exits with status 0
  */
 
-int main(void)
+int main(int argc, char *argv[])
 {
+	char *line = NULL;
+	char **tokens = NULL;
+	char *buff = NULL;
+	char *tmp = NULL;
+
+	if (argc == 2)
+	{
+		runfile(argv[1], line, tokens);
+		exit(0);
+	}
 	while (1)
 	{
-		char *line;
-		char **tokens;
-		char *buff = NULL;
-		char *tmp = NULL;
-
 		printf("$ ");
 		line = _getline();
 		tokens = split_line(line);

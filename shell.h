@@ -27,6 +27,7 @@ char *get_path_buff_size(char *file);
 char *find_path(char* file, char *buff);
 int execute(char **args);
 char *_getline();
+void runfile(char *file, char *line, char **tokens);
 
 void _myexit(char **args);
 void _mycd(char **args);
